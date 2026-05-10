@@ -865,7 +865,7 @@
 
     <div class="callout">
         <div class="callout-label">The numbers that matter</div>
-        <p>An H100 SXM5 talks to its host over PCIe 5 x16 at ~64 GB/s. The same card talks to its seven NVSwitch-connected siblings at 900 GB/s aggregate (18 NVLink-4 links &times; 50 GB/s/dir). That is roughly <strong>14&times; the host bus</strong>. Anything you care about &mdash; tensor-parallel all-reduce, KV migration, expert routing &mdash; should ride NVLink, not PCIe. PCIe is for boot, weight loading, NVMe traffic, NIC traffic, and management.</p>
+        <p>An H100 SXM5 talks to its host over PCIe 5 x16 at ~64 GB/s per direction (~128 GB/s bidirectional). The same card talks to its seven NVSwitch-connected siblings at 900 GB/s aggregate bidirectional (18 NVLink-4 links &times; 25 GB/s/dir, or equivalently 50 GB/s bidirectional per link). That is roughly <strong>7&times; the host bus</strong>. Anything you care about &mdash; tensor-parallel all-reduce, KV migration, expert routing &mdash; should ride NVLink, not PCIe. PCIe is for boot, weight loading, NVMe traffic, NIC traffic, and management.</p>
     </div>
 
     <h3>What a PCIe-only GPU loses</h3>
@@ -1033,7 +1033,7 @@ sudo lspci -vvv | grep -E <span class="str">'IOMMU|ACSCtl'</span>
 
     <div class="callout">
         <div class="callout-label">Numbers</div>
-        <p>P2P bandwidth on PCIe 4 x16 tops out around 26-28 GB/s effective (out of 32 GB/s raw, after PCIe overhead). On PCIe 5 x16, ~52-56 GB/s. Latency is ~3-5 &mu;s setup. NVLink-4 P2P delivers 50 GB/s per direction <em>per link</em>, and an H100 SXM5 has 18 of them &mdash; ~7&times; the headline P2P-on-PCIe number, before adding parallelism across links.</p>
+        <p>P2P bandwidth on PCIe 4 x16 tops out around 26-28 GB/s effective per direction (out of 32 GB/s raw, after PCIe overhead). On PCIe 5 x16, ~52-56 GB/s per direction. Latency is ~3-5 &mu;s setup. NVLink-4 delivers 25 GB/s per direction <em>per link</em> (50 GB/s bidirectional per link), and an H100 SXM5 has 18 of them for 900 GB/s bidirectional aggregate &mdash; ~7&times; the headline P2P-on-PCIe-5 number.</p>
     </div>
 </section>
 
