@@ -851,9 +851,9 @@
                 <tr><th>Architecture</th><th>Examples</th><th>PCIe gen</th><th>x16 BW (per direction)</th><th>NVLink (where present)</th></tr>
             </thead>
             <tbody>
-                <tr><td><strong>Pascal</strong></td><td>P100</td><td>PCIe 3.0</td><td>~16 GB/s</td><td>NVLink 1, 4 links, 80 GB/s aggregate</td></tr>
+                <tr><td><strong>Pascal</strong></td><td>P100</td><td>PCIe 3.0</td><td>~16 GB/s</td><td>NVLink 1, 4 links, 160 GB/s aggregate</td></tr>
                 <tr><td><strong>Volta</strong></td><td>V100</td><td>PCIe 3.0</td><td>~16 GB/s</td><td>NVLink 2, 6 links, 300 GB/s aggregate</td></tr>
-                <tr><td><strong>Turing</strong></td><td>T4, RTX 20-series</td><td>PCIe 3.0</td><td>~16 GB/s</td><td>NVLink bridge on RTX 2080 Ti only</td></tr>
+                <tr><td><strong>Turing</strong></td><td>T4, RTX 20-series</td><td>PCIe 3.0</td><td>~16 GB/s</td><td>NVLink bridge on RTX 2080 / 2080 Super / 2080 Ti, Titan RTX, Quadro RTX</td></tr>
                 <tr><td><strong>Ampere</strong></td><td>A100, RTX 30-series</td><td>PCIe 4.0</td><td>~32 GB/s</td><td>NVLink 3, 600 GB/s on A100 SXM</td></tr>
                 <tr><td><strong>Ada Lovelace</strong></td><td>L40S, RTX 40-series</td><td>PCIe 4.0</td><td>~32 GB/s</td><td>None on consumer; none on L40S</td></tr>
                 <tr><td><strong>Hopper</strong></td><td>H100, H200</td><td>PCIe 5.0</td><td>~64 GB/s</td><td>NVLink 4, 18 links &times; 50 GB/s = 900 GB/s on SXM5</td></tr>
@@ -1121,7 +1121,7 @@ CUDA_VISIBLE_DEVICES=<span class="num">0</span>,<span class="num">1</span> \
                 <tr><td><code>NV#</code></td><td>Direct NVLink, # = number of links</td><td>Best. e.g. <code>NV18</code> = 18 NVLink-4 links via NVSwitch</td></tr>
                 <tr><td><code>PIX</code></td><td>Single PCIe bridge between the two GPUs</td><td>Good. P2P at full PCIe x16 speed</td></tr>
                 <tr><td><code>PXB</code></td><td>Multiple PCIe bridges traversed</td><td>OK. Adds latency; bandwidth still bus-limited</td></tr>
-                <tr><td><code>PHB</code></td><td>PCIe + host bridge (PCH/chipset)</td><td>Worse. Goes through PCH; lower BW, higher latency</td></tr>
+                <tr><td><code>PHB</code></td><td>PCIe + a PCIe host bridge (typically the CPU root complex)</td><td>Worse. Traffic turns round in the CPU; lower BW, higher latency</td></tr>
                 <tr><td><code>NODE</code></td><td>Within NUMA node but no direct PCIe path between</td><td>Very poor. Often goes through CPU root complex</td></tr>
                 <tr><td><code>SYS</code></td><td>Crosses CPU sockets (UPI / Infinity Fabric)</td><td>Worst. P2P typically disabled. Avoid TP across this</td></tr>
             </tbody>
