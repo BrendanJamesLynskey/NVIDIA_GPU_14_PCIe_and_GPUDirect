@@ -5,3 +5,5 @@ PCIe generations (3 to 6), Resizable BAR, IOMMU and ACS, NUMA pinning, GPUDirect
 **Live site:** https://brendanjameslynskey.github.io/NVIDIA_GPU_14_PCIe_and_GPUDirect/
 
 Part of the [NVIDIA GPU Architectures series](https://github.com/BrendanJamesLynskey/LLMs#nvidia-gpu-architectures).
+
+**Animated companion:** [AI Racks Explained](https://ai-racks-explained.vercel.app/) — [chapter 3, Trays and nodes](https://ai-racks-explained.vercel.app/learn/03-trays-and-nodes), [chapter 8, Disaggregated inference on a rack](https://ai-racks-explained.vercel.app/learn/08-disaggregated-inference).

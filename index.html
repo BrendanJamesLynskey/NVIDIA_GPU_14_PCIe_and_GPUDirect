@@ -1209,6 +1209,11 @@ NVMe SSD  &rarr;  PCIe  &rarr;  GPU VRAM
         <div class="callout-label">When GDS pays off</div>
         <p>Checkpoint loading on big-model training, multi-node serving with shared distributed FS, and large dataset streaming. For day-to-day inference (weights stay resident in VRAM after first load), GDS is irrelevant. The clearest win is in TRT-LLM / vLLM cold-start time on a 70B+ FP8 checkpoint when host page cache isn't warm.</p>
     </div>
+
+    <div class="callout">
+        <div class="callout-label">Animated companion</div>
+        <p>A payload in chunks crossing a GB200 tray's links (network card to GPU, Grace memory, another GPU), animated: AI Racks Explained, <a href="https://ai-racks-explained.vercel.app/learn/03-trays-and-nodes" style="color: var(--accent);">chapter 3, trays and nodes</a>; KV caches handed from prefill to decode GPUs over NVLink or the network: <a href="https://ai-racks-explained.vercel.app/learn/08-disaggregated-inference" style="color: var(--accent);">chapter 8, disaggregated inference on a rack</a>.</p>
+    </div>
 </section>
 
 <section class="slide" id="slide-09">
@@ -1514,6 +1519,7 @@ NVMe SSD  &rarr;  PCIe  &rarr;  GPU VRAM
 <footer class="footer">
     <p>Part of the <a href="https://github.com/BrendanJamesLynskey/LLMs#nvidia-gpu-architectures">NVIDIA GPU Architectures Series</a></p>
     <p style="margin-top: 0.5rem; font-size: 0.8rem;"><a href="https://github.com/BrendanJamesLynskey/LLMs#nvidia-gpu-architectures">Back to Series Index</a></p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Animated companion site: <a href="https://ai-racks-explained.vercel.app/">AI Racks Explained</a> &mdash; the machines underneath, chip to rack, each chapter around a model-driven animation with every figure sourced.</p>
 </footer>
 
 <script>
